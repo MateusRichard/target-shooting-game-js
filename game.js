@@ -12,20 +12,51 @@ ajustaTamanhoPalcoJogo()
 
 function posicaoRandomica() {
 
-var posicaoX = Math.floor(Math.random() * largura) - 90
-var posicaoY = Math.floor(Math.random() * altura) - 90
+    //remover o alvo anterior (caso exista)
+    if(document.getElementById('alvo')) {
+        document.getElementById('alvo').remove()
+    }
 
-posicaoX = posicaoX < 0 ? 0 : posicaoX
-posicaoY = posicaoY < 0 ? 0 : posicaoY
+    var posicaoX = Math.floor(Math.random() * largura) - 90
+    var posicaoY = Math.floor(Math.random() * altura) - 90
 
-console.log(posicaoX, posicaoY)
+    posicaoX = posicaoX < 0 ? 0 : posicaoX
+    posicaoY = posicaoY < 0 ? 0 : posicaoY
 
-var alvo = document.createElement('img')
-alvo.src = 'imagens/alvo.png'
-alvo.className = 'alvo1'
-alvo.style.left = posicaoX + 'px'
-alvo.style.top = posicaoY + 'px'
-alvo.style.position = 'absolute'
+    console.log(posicaoX, posicaoY)
 
-document.body.appendChild(alvo)
+    var alvo = document.createElement('img')
+    alvo.src = 'imagens/alvo.png'
+    alvo.className = tamanhoAleatorio() + ' ' + ladoAleatorio()
+    alvo.style.left = posicaoX + 'px'
+    alvo.style.top = posicaoY + 'px'
+    alvo.style.position = 'absolute'
+    alvo.id = 'alvo'
+
+    document.body.appendChild(alvo)
+
+}
+
+function tamanhoAleatorio() {
+    var classe = Math.floor(Math.random() * 3)
+    
+    switch(classe) {
+        case 0:
+            return 'alvo1'
+        case 1:
+            return 'alvo2'
+        case 2:
+            return 'alvo3'
+    }
+}
+
+function ladoAleatorio() {
+    var classe = Math.floor(Math.random() * 2)
+    
+    switch(classe) {
+        case 0:
+            return 'ladoA'
+        case 1:
+            return 'ladoB'
+    }
 }
