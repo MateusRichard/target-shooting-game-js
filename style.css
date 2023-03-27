@@ -1,21 +1,22 @@
 body {
     background-image: url(imagens/fundo3.jpg);
     background-repeat: no-repeat;
+    width: 90vw;
 }
 
 .alvo1 {
-    width: 50px;
-    height: 50px;
+    width: 3vw;
+    height: 3vw;
 }
 
 .alvo2 {
-    width: 70px;
-    height: 70px;
+    width: 5vw;
+    height: 5vw;
 }
 
 .alvo3 {
-    width: 90px;
-    height: 90px;
+    width: 7vw;
+    height: 7vw;
 }
 
 .ladoA {

@@ -1,15 +1,30 @@
 var altura = 0
 var largura = 0
 var vidas = 1
+var tempo = 10
 
 function ajustaTamanhoPalcoJogo() {
-    altura = window.innerHeight
-    largura = window.innerWidth
+    altura = window.innerHeight * 0.85
+    largura = window.innerWidth * 0.85
 
     console.log(largura, altura)
 }
 
 ajustaTamanhoPalcoJogo()
+
+var cronometro = setInterval(function() {
+
+
+    tempo -= 1
+
+    if(tempo < 0) {
+        clearInterval(cronometro)
+        clearInterval(criaAlvo)
+        alert('Vitoria')
+    } else {
+    document.getElementById('cronometro').innerHTML = tempo
+    }
+}, 1000)
 
 function posicaoRandomica() {
 
@@ -27,8 +42,8 @@ function posicaoRandomica() {
     }
 }
 
-    var posicaoX = Math.floor(Math.random() * largura) - 90
-    var posicaoY = Math.floor(Math.random() * altura) - 90
+    var posicaoX = Math.floor(Math.random() * largura)
+    var posicaoY = Math.floor(Math.random() * altura)
 
     posicaoX = posicaoX < 0 ? 0 : posicaoX
     posicaoY = posicaoY < 0 ? 0 : posicaoY
