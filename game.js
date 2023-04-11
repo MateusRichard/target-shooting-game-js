@@ -3,6 +3,22 @@ var largura = 0
 var vidas = 1
 var tempo = 10
 
+var criaAlvoTempo = 1500
+
+var nivel = window.location.search
+nivel = nivel.replace('?', '')
+
+if(nivel === 'normal') {
+    //1500
+    criaAlvoTempo = 1500
+} else if(nivel === 'dificil'){
+    //1000
+    criaAlvoTempo = 1000
+} else if (nivel === 'chucknorris') {
+    //750
+    criaAlvoTempo = 750
+}
+
 function ajustaTamanhoPalcoJogo() {
     altura = window.innerHeight * 0.85
     largura = window.innerWidth * 0.85
